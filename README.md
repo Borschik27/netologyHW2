@@ -189,3 +189,44 @@ DB_PASSWORD=QwErTy1234
 DB_NAME=virtd
 TABLE_NAME=test
 ```
+
+Задание 2 
+
+```
+sypchik@netology:~$ docker images
+REPOSITORY                                TAG                        IMAGE ID       CREATED         SIZE
+cr.yandex/crpgm4k9ci5g631sutij/pythonhw   1.0.0                      f7586efbade4   4 minutes ago   227MB
+shvirtd-example-python-app                latest                     ffb8ea077e61   19 hours ago    227MB
+netologyhw                                1.0.0                      e7c3e939b06c   21 hours ago    227MB
+tastysypchik/netology                     AU-custom-nginx-t2_1.0.0   2c1a49677aad   21 hours ago    188MB
+mysql                                     lts                        da8f2a99cf39   8 days ago      583MB
+ubuntu                                    22.04                      8a3cdc4d1ad3   12 days ago     77.9MB
+centos                                    centos7                    eeb6ee3f44bd   2 years ago     204MB
+sypchik@netology:~$ docker tag tastysypchik/netology:AU-custom-nginx-t2_1.0.0 cr.yandex/crpgm4k9ci5g631sutij/pythonh:1.0.0
+nginx:1.0.0
+sypchik@netology:~$ docker images
+REPOSITORY                                TAG                        IMAGE ID       CREATED         SIZE
+cr.yandex/crpgm4k9ci5g631sutij/pythonhw   1.0.0                      f7586efbade4   5 minutes ago   227MB
+shvirtd-example-python-app                latest                     ffb8ea077e61   19 hours ago    227MB
+netologyhw                                1.0.0                      e7c3e939b06c   21 hours ago    227MB
+cr.yandex/crpgm4k9ci5g631sutij/nginx      1.0.0                      2c1a49677aad   21 hours ago    188MB
+tastysypchik/netology                     AU-custom-nginx-t2_1.0.0   2c1a49677aad   21 hours ago    188MB
+mysql                                     lts                        da8f2a99cf39   8 days ago      583MB
+ubuntu                                    22.04                      8a3cdc4d1ad3   12 days ago     77.9MB
+centos                                    centos7                    eeb6ee3f44bd   2 years ago     204MB
+sypchik@netology:~$ docker push cr.yandex/crpgm4k9ci5g631sutij/nginx:1.0.0
+The push refers to repository [cr.yandex/crpgm4k9ci5g631sutij/nginx]
+d5b0564556ee: Pushed
+1091814e6af8: Pushed
+cd8d591df8d7: Pushed
+ad2f52a870b6: Pushed
+28bc3c939a8d: Pushed
+b503a08457e3: Pushed
+19d8180bc03a: Pushed
+32148f9f6c5a: Layer already exists
+1.0.0: digest: sha256:ffd0d604ca8b3ea755cb4e6aae8e61231c6e390d84666da92441a1ab620df32c size: 1985
+```
+![image](https://github.com/Borschik27/netologyHW2/assets/121562626/b914676d-6388-45fe-853b-4e0455566959)
+
+Задача 3
+
