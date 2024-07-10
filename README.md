@@ -1,6 +1,6 @@
-Домашнее задание к занятию 5. «Практическое применение Docker»
+0Домашнее задание к занятию 5. «Практическое применение Docker»
 
-Dockefile + Docker-Compose приложены в проекте
+Dockefile + Docker-Compose + main.py приложены в проекте 
 
 Каталог и dockerignore
 ```
@@ -229,4 +229,4 @@ b503a08457e3: Pushed
 ![image](https://github.com/Borschik27/netologyHW2/assets/121562626/b914676d-6388-45fe-853b-4e0455566959)
 
 Задача 3
-
+![image](https://github.com/Borschik27/netologyHW2/assets/121562626/20ae47ee-257e-4937-a9f1-78aae5097262)
