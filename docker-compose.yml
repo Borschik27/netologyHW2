@@ -1,3 +1,5 @@
+include:
+  - ./proxy.yaml
 services:
   db:
     image: mysql:lts
