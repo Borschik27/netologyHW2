@@ -230,3 +230,19 @@ b503a08457e3: Pushed
 
 Задача 3
 ![image](https://github.com/Borschik27/netologyHW2/assets/121562626/20ae47ee-257e-4937-a9f1-78aae5097262)
+
+Задача 4 
+
+![image](https://github.com/Borschik27/netologyHW2/assets/121562626/88422e30-0953-4c0b-b9e2-c6ba554683da)
+
+Форк-репо
+https://github.com/Borschik27/shvirtd-example-python
+
+```
+sypchik@netology:~/shvirtd-example-python$ cat forkHW.sh
+#!/bin/sh
+wd=/opt/myProj
+git clone https://github.com/Borschik27/shvirtd-example-python.git $wd
+chown -R $(id -u):$(id -g) $wd
+docker compose -f $wd/docker-compose.yml up
+```
