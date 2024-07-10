@@ -4,27 +4,49 @@ services:
     container_name: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 'YtReWq4321'
-      MYSQL_DATABASE: 'virtd'
-      MYSQL_USER: 'app'
-      MYSQL_PASSWORD: 'QwErTy1234'
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+#      MYSQL_ROOT_PASSWORD: 'YtReWq4321'
+#      MYSQL_DATABASE: 'virtd'
+#      MYSQL_USER: 'app'
+#      MYSQL_PASSWORD: 'QwErTy1234'
     ports:
       - "3306:3306"
     volumes:
       - ./my.cnf:/etc/mysql/conf.d/ip.cnf
+    networks:
+      backend:
+        ipv4_address: 172.20.0.10
 
-  app:
+  web:
+#    images: cr.yandex/crpgm4k9ci5g631sutij/nginx:1.0.0
     build:
       context: .
       dockerfile: Dockerfile.python
-    container_name: app
+    container_name: web
     restart: always
     depends_on:
       - db
     environment:
       DB_HOST: db
-      DB_USER: 'app'
-      DB_PASSWORD: 'QwErTy1234'
-      DB_NAME: 'virtd'
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+#      DB_HOST: db
+#      DB_USER: 'app'
+#      DB_PASSWORD: 'QwErTy1234'
+#      DB_NAME: 'virtd'
     ports:
       - "5000:5000"
+    networks:
+      backend:
+        ipv4_address: 172.20.0.5
+
+networks:
+  backend:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
