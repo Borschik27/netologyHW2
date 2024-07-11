@@ -251,6 +251,7 @@ docker compose -f $wd/docker-compose.yml up
 ![image](https://github.com/Borschik27/netologyHW2/assets/121562626/16341c18-c2e3-40ec-8d49-db3402b41b8b)
 
 Задача 6
+```
 sypchik@netology:~$ docker pull hashicorp/terraform:latest
 latest: Pulling from hashicorp/terraform
 Digest: sha256:4826ea916b3678ffbe091380f0571cc2b097360c6e1624168e7a543284d576a4
@@ -294,3 +295,4 @@ sypchik@netology:~$ ls extracted_layers/
 bin  dev  etc  home  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 sypchik@netology:~$ find extracted_layers -type f -name terraform
 extracted_layers/bin/terraform
+```
