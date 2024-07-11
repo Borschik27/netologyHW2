@@ -246,3 +246,51 @@ git clone https://github.com/Borschik27/shvirtd-example-python.git $wd
 chown -R $(id -u):$(id -g) $wd
 docker compose -f $wd/docker-compose.yml up
 ```
+Задача 5
+Задачу реализовать быстро к сожалению не могу выдает таку ошибку
+![image](https://github.com/Borschik27/netologyHW2/assets/121562626/16341c18-c2e3-40ec-8d49-db3402b41b8b)
+
+Задача 6
+sypchik@netology:~$ docker pull hashicorp/terraform:latest
+latest: Pulling from hashicorp/terraform
+Digest: sha256:4826ea916b3678ffbe091380f0571cc2b097360c6e1624168e7a543284d576a4
+Status: Image is up to date for hashicorp/terraform:latest
+docker.io/hashicorp/terraform:latest
+sypchik@netology:~$ docker save -o terraform_latest.tar hashicorp/terraform:latest
+sypchik@netology:~$ mkdir terraform_image
+tar -xvf terraform_latest.tar -C terraform_image
+235b4016b0907df5897c705099d22ee37ec0bf1338ac2586e24b33b611127875/
+235b4016b0907df5897c705099d22ee37ec0bf1338ac2586e24b33b611127875/VERSION
+235b4016b0907df5897c705099d22ee37ec0bf1338ac2586e24b33b611127875/json
+235b4016b0907df5897c705099d22ee37ec0bf1338ac2586e24b33b611127875/layer.tar
+2e74ef4dd3d495f885dcdeea61843955aa1a1d7cb87c53d2b02f8b6a8cbc7d90/
+2e74ef4dd3d495f885dcdeea61843955aa1a1d7cb87c53d2b02f8b6a8cbc7d90/VERSION
+2e74ef4dd3d495f885dcdeea61843955aa1a1d7cb87c53d2b02f8b6a8cbc7d90/json
+2e74ef4dd3d495f885dcdeea61843955aa1a1d7cb87c53d2b02f8b6a8cbc7d90/layer.tar
+af62ce8c3aedebc8aedfc28dc978ab63ceb66fba41726accc1576d7ebb82b1c9.json
+d8e621470ed1598249637cd6a4aea90917d4b0428b8b183a5ce85c94e033327d/
+d8e621470ed1598249637cd6a4aea90917d4b0428b8b183a5ce85c94e033327d/VERSION
+d8e621470ed1598249637cd6a4aea90917d4b0428b8b183a5ce85c94e033327d/json
+d8e621470ed1598249637cd6a4aea90917d4b0428b8b183a5ce85c94e033327d/layer.tar
+fdceaee17ed0af343d6eca575abc4a309bf066ad744a1d31fc4d9904ce9109de/
+fdceaee17ed0af343d6eca575abc4a309bf066ad744a1d31fc4d9904ce9109de/VERSION
+fdceaee17ed0af343d6eca575abc4a309bf066ad744a1d31fc4d9904ce9109de/json
+fdceaee17ed0af343d6eca575abc4a309bf066ad744a1d31fc4d9904ce9109de/layer.tar
+manifest.json
+repositories
+sypchik@netology:~$ find terraform_image -name terraform
+sypchik@netology:~$ cd terraform_image
+sypchik@netology:~/terraform_image$ find * | grep terraform
+sypchik@netology:~/terraform_image$ cd ..
+sypchik@netology:~$ find terraform_image -type f -executable -name terraform
+sypchik@netology:~$ mkdir -p extracted_layers
+sypchik@netology:~$ for layer_tar in $(find . -name "layer.tar"); do \
+    tar -xf $layer_tar -C extracted_layers \
+done
+sypchik@netology:~$ ls
+command.txt  conf.d  docker-compose.yml  Dockerfile.python  html                    snap             terraform_latest.tar
+compose      data    Dockerfile          extracted_layers   shvirtd-example-python  terraform_image  yandex-cloud
+sypchik@netology:~$ ls extracted_layers/
+bin  dev  etc  home  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+sypchik@netology:~$ find extracted_layers -type f -name terraform
+extracted_layers/bin/terraform
